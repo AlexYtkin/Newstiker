@@ -1,0 +1,6 @@
+<div class="col-md-6">
+  <h2><%= @article.title %></h2>
+  <p><%= image_tag @article.picture.url %></p>
+  <p><%= @article.description %></p>
+  <%= link_to "Назад", articles_path, class: 'btn btn-default' %>
+</div>

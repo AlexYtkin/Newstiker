@@ -1,0 +1,29 @@
+<div>
+
+ <div class="col-md-6">
+ <%= form_tag admin_articles_path, :method => 'get' do %>
+   <%= text_field_tag :search, params[:search] %>
+   <%= submit_tag "Search", class: 'btn btn-success'%>
+ <% end %>
+ </div>
+
+  <table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Picture</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <th>Destroy</th>
+  </tr>
+  <% @articles.each do |f| %>
+  <tr>
+    <td><%= f.title %></td>
+    <td><%= image_tag f.picture.url(:thumb) %></td>
+    <td><%= f.description %></td>
+    <td><%= link_to "Edit", edit_admin_article_path(f), class: 'btn btn-warning' %></td>
+    <td><%= link_to "Удалить новость", [:admin, f], method: :delete, remote: true, class: 'btn btn-danger' %></td>
+  </tr>
+  <% end %>
+</table>
+ <%= link_to "Новая новость", new_admin_article_path(@article), class: 'btn btn-primary'%>
+</div>

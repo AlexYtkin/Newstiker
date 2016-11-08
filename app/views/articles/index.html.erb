@@ -1,0 +1,10 @@
+<div class="row">
+    <% @articles.each do |f| %>
+    <div class="col-md-4">
+    <h2><%= f.title %></h2>
+    <p><%= image_tag f.picture.url(:thumb) %></p>
+    <p><%= f.description%></p>
+    <p><%= link_to "View details", article_path(f), class: 'btn btn-default' %></p>
+    </div>
+    <% end %>
+</div>

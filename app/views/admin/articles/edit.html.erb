@@ -1,0 +1,10 @@
+<div class="col-md-6">
+<%= simple_form_for @article, url: admin_article_path(@article), method: :patch do |f| %>
+<%= f.input :title %>
+<%= f.input :description, as: :text %>
+<%= f.input :picture, as: :file %>
+<%= f.button :submit, class: 'btn btn-primary'%>
+<%= link_to "Удалить новость", [:admin, @article], method: :delete, remote: true, class: 'btn btn-danger' %>
+<%= link_to "Назад", admin_articles_path, class: 'btn btn-default' %>
+<% end %>
+</div>
